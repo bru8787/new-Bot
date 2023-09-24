@@ -12,7 +12,7 @@ class Form extends Model
 	public $table = 'form';
 
 
-	public $fillable = ['sender_id','message'];
+	public $fillable = ['country_id','name','sender_id','message'];
 
 
 }

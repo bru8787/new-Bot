@@ -18,5 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('create', [BotController::class, 'create']);
+
+Route::get('importData', [BotController::class, 'importData'])->name('importData');
+Route::get('create', [BotController::class, 'create'])->name('create');
+Route::get('update/{id}', [BotController::class, 'update'])->name('update');
 Route::post('store', [BotController::class, 'store'])->name('store');
