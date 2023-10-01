@@ -66,7 +66,7 @@ class BotController extends Controller
                 {
 
                     $query = $request->get('query');
-                    
+
                         if ($query !='') {
                         $data=$bot->find($query);
                         return json_encode($data,true);
@@ -80,9 +80,7 @@ class BotController extends Controller
              */
             public function edit($id,Bot $bot )
             {
-               $obje= $bot->find($id);
-               $country=$bot->all();
-               return view("create", compact ("obje","country"));
+                //
             }
 
             /**
@@ -91,10 +89,7 @@ class BotController extends Controller
             public function update(Request $request,Bot $bot  )
             {
 
-                $country=$bot->all();
-                $data=$bot->find();
-                echo $data;
-                return view('create', compact ('country','data'));
+                //
             }
 
             /**

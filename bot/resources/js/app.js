@@ -3,6 +3,10 @@ import '../sass/app.scss'
 import '../css/app.css';
 
 
+        $('#importButton').on('click',function(){
+            $(this).attr('hidden');
+        });
+
 
     function fetch_customer_data(query = '') {
         $.ajax({
