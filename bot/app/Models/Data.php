@@ -4,6 +4,16 @@ namespace App\Models;
 Class Data
 {
 
+public $sender="Apple";
+public $template="
+        !!Default template!!
+        (This mean we have still not tested this country and set right template)
+
+        Dear Costumer,
+        Your lost iPhone %%model%% has been found and connected to the internet .
+        Check its current location:
+        %%link%%
+        Apple Support";
 
     public $countryListSimple = [
         "Afghanistan",

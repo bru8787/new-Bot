@@ -3,9 +3,8 @@
 
 <head>
     <title>Form</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js',
+    'resources/sass/app.scss','resources/css/app.css',])
 
 </head>
 
@@ -31,27 +30,27 @@
 
             <div class="row col-md-6">
                 <div class="form-group {{ $errors->has('countries') ? 'has-error' : '' }}">
-                    <label for="countries-select">Country:</label>
-                    <select name="countries-select" id="countries-select"class="form-control " >
-                        <option value="" disabled selected >Select country</option>
-                        @foreach ($country as $item)
-                            <option id="countries" name="countries" class="form-control" value={{
-                            old('$item->id') }}
-                               > {{ old('$item->name' )}} </option>
+                    <label for="countries">Country:</label>
+                    <select name="countries" id="countries"class="form-control " >
+                        <option id='disabled' value= ''
+                         >Select country</option>
+                         @foreach ($country as $item)
+                            <option id="countries" name="countries" class="form-control"
+                            value="{{ $item->id }}"> {{ $item->name}}</option>
                         @endforeach
                     </select>
 
                 </div>
                 <div class="form-group {{ $errors->has('sernder_id') ? 'has-error' : '' }}">
                     <label for="sender_id">Sender id:</label>
-                    <input name="sender_id" id="sender_id" type="text" class="form-control">
+                    <input name="sender_id" id="sender_id" type="text"  class="form-control" value="">
                 </div>
             </div>
             <div class="row h-full">
                 <div class="col-md-6 h-full">
                     <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
                         <label for="message">Text:</label>
-                        <textarea name="message" id="message" class="form-control "@style('height:100px') placeholder="Enter message">{{ old('message') }}</textarea>
+                        <textarea name="message" id="message" class="form-control "@style('height:100px') placeholder="Enter message"></textarea>
                         <span class="text-danger">{{ $errors->first('message') }}</span>
                     </div>
                 </div>

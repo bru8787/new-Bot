@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BotController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 
 Route::get('importData', [BotController::class, 'importData'])->name('importData');
 Route::get('create', [BotController::class, 'create'])->name('create');
 Route::get('update/{id}', [BotController::class, 'update'])->name('update');
+Route::get('edit/{id}', [BotController::class, 'edit'])->name('edit');
 Route::post('store', [BotController::class, 'store'])->name('store');
+Route::get('show', [BotController::class, 'show'])->name('show');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,10 +1,27 @@
 import './bootstrap';
+import '../sass/app.scss'
+import '../css/app.css';
 
-    var val =document.getElementById('countries-select');
-    val.addEventListener("change", function(){
-      var  id=val.value;
-      const url='http://localhost:8000/update/'
-        document.location.href=url+id;
-    })
 
+
+    function fetch_customer_data(query = '') {
+        $.ajax({
+            url: "show",
+            method: 'GET',
+            data: {
+                query: query
+            },
+            dataType: 'json',
+            success: function(data) {
+                $('#message').val(data.message);
+                $('#sender_id').val(data.sender_id);
+            }
+        })
+    }
+
+    $('#countries').on('change', function() {
+        var query = this.value;
+
+        fetch_customer_data(query);
+    });
 

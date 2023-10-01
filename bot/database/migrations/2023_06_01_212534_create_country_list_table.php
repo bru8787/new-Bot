@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('timezone');
             $table->string('utc');
             $table->string('mobilecode');
+            $table->string('sender_id');
+            $table->text('message');
             $table->timestamps();
         });
     }
