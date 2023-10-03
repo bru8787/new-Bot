@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BotController;
+use App\Http\Controllers\TgBotController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome
+    ');
 });
 
 
@@ -26,6 +28,8 @@ Route::get('update/{id}', [BotController::class, 'update'])->name('update');
 Route::get('edit/{id}', [BotController::class, 'edit'])->name('edit');
 Route::post('store', [BotController::class, 'store'])->name('store');
 Route::get('show', [BotController::class, 'show'])->name('show');
+Route::get('welcome', [TgBotController::class, 'welcome'])->name('welcome');
+
 
 Auth::routes();
 

@@ -7,6 +7,7 @@ use App\Models\Data;
 use Exception;
 use Illuminate\Http\Request;
 
+
 /**
  * Summary of Bot
  */
@@ -74,6 +75,9 @@ class BotController extends Controller
                         return ('there was an error .try again');
 
                  }
+
+
+
         }
             /**
              * Show the form for editing the specified resource.
