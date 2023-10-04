@@ -4,7 +4,11 @@ namespace App\Models;
 Class Data
 {
 
+public $sender="Default
 
+";
+public $template="
+       Default template";
 
     public $countryListSimple = [
         "Afghanistan",
