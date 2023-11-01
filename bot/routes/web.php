@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\BotController;
-use App\Http\Controllers\TgBotController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome
-    ');
-});
 
+Route::prefix('/')->middleware(['auth','isAdmin'])->group(function () {
 
 Route::get('importData', [BotController::class, 'importData'])->name('importData');
 Route::get('create', [BotController::class, 'create'])->name('create');
@@ -28,9 +25,7 @@ Route::get('update/{id}', [BotController::class, 'update'])->name('update');
 Route::get('edit/{id}', [BotController::class, 'edit'])->name('edit');
 Route::post('store', [BotController::class, 'store'])->name('store');
 Route::get('show', [BotController::class, 'show'])->name('show');
-Route::get('welcome', [TgBotController::class, 'welcome'])->name('welcome');
-
+Route::get('', [HomeController::class, 'index'])->name('/');
+});
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

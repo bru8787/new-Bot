@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -64,4 +65,28 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+	/**
+	 * The application's middleware aliases.
+	 *
+	 * Aliases may be used instead of class names to conveniently assign middleware to routes and groups.
+	 *
+	 * @return array<string, class-string|string>
+	 */
+	public function getMiddlewareAliases() {
+		return $this->middlewareAliases;
+	}
+
+	/**
+	 * The application's middleware aliases.
+	 *
+	 * Aliases may be used instead of class names to conveniently assign middleware to routes and groups.
+	 *
+	 * @param array<string, class-string|string> $middlewareAliases The application's middleware aliases.
+	 * @return self
+	 */
+	public function setMiddlewareAliases($middlewareAliases): self {
+		$this->middlewareAliases = $middlewareAliases;
+		return $this;
+	}
 }

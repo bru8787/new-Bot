@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Form</title>
-    @vite(['resources/js/app.js', 'resources/sass/app.scss', 'resources/css/app.css'])
 
-</head>
+@section('content')
 
-<body>
-    <button id='importButton'  class='btn btn-info' type='button' onclick=window.location="{{ route('importData') }}">import</button>
     <div class="container">
+        <button id='importButton'  class='btn btn-info' type='button' onclick=window.location="{{ route('importData') }}">import</button>
         <h2>Form</h2>
         <form method="POST" action="{{ route('store') }}" autocomplete="on" enctype="multipart/form-data">
 
@@ -58,6 +53,5 @@
             </div>
         </form>
     </div>
-</body>
 
-</html>
+@endsection
