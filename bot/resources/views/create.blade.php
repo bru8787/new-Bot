@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="container">
-        <button id='importButton'  class='btn btn-info' type='button' onclick=window.location="{{ route('importData') }}">import</button>
+        {{-- <button id='importButton'  class='btn btn-info' type='button' onclick=window.location="{{ route('importData') }}">import</button> --}}
         <h2>Form</h2>
         <form method="POST" action="{{ route('store') }}" autocomplete="on" enctype="multipart/form-data">
 
