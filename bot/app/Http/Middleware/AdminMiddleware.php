@@ -20,7 +20,7 @@ class AdminMiddleware
             if (Auth::user()->role == "1") {
                 return $next($request);
             }else{
-                return redirect("/home")->with("error","Access Denied , u should be the boss dude to access this feature page");
+                return redirect("/")->with("error","Access Denied , u should be the boss dude to access this feature page");
             }
         }else{
             return redirect("/login")->with("error","Login ,dude!!");

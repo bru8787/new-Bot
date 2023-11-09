@@ -3,14 +3,7 @@ import '../sass/app.scss';
 import '../css/app.css';
 import jQuery from 'jquery';
 window.$ = jQuery;
-
-
-$('#importButton').on('change', function () {
-    alert('hidden');
-});
-
-
-function fetch_customer_data(query = '') {
+function fetch_customer_data(query) {
     $.ajax
         ({
             url: "show",
@@ -28,8 +21,7 @@ function fetch_customer_data(query = '') {
 
 $('#countries').on('change', function () {
     var query = this.value;
-
-    fetch_customer_data(query);
+        fetch_customer_data(query);
 });
 (() => {
     'use strict'
@@ -37,4 +29,4 @@ $('#countries').on('change', function () {
     tooltipTriggerList.forEach(tooltipTriggerEl => {
       new bootstrap.Tooltip(tooltipTriggerEl)
     })
-  })()
+  })();
