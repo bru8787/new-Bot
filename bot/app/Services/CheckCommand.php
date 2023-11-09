@@ -15,7 +15,6 @@ use Telegram\Bot\Laravel\Facades\Telegram;
     protected $timezone;
     protected $match;
     protected $text;
-    protected $request;
     protected  $param = [
         'chat_id',
         'from_chat_id',
@@ -31,7 +30,6 @@ use Telegram\Bot\Laravel\Facades\Telegram;
         $this->param = $param;
 
     }
-
         public function check($request) {
         if ($request->message==null || !array_key_exists("text",$request->message  ) )
             {
@@ -61,7 +59,7 @@ use Telegram\Bot\Laravel\Facades\Telegram;
     protected function checkCommand($bot_command)
     {
         $bot = new Bot;
-        $this->match =  $bot::where('name', $bot_command)->get();
+        $this->match =  $bot::where('name', $bot_command)->first();
         $this->match = $this->match->toArray();
         $this->suggested = $this->suggestCommand($bot_command );
         $bot_command = Str::ucfirst($bot_command);
@@ -139,8 +137,8 @@ use Telegram\Bot\Laravel\Facades\Telegram;
     protected function Send($data)
     {
         if ($data) {
-            Log::info($data);
-
+Log::info($data);
+            die();
             Telegram::sendMessage($data);
         }
     }
