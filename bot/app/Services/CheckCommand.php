@@ -59,7 +59,8 @@ use Telegram\Bot\Laravel\Facades\Telegram;
     protected function checkCommand($bot_command)
     {
         $bot = new Bot;
-        $this->match =  $bot::where('name', $bot_command)->first();
+        $this->match =  $bot::where('name', '=',$bot_command)->get();
+        Log::info(''.$bot_command);
         $this->match = $this->match->toArray();
         $this->suggested = $this->suggestCommand($bot_command );
         $bot_command = Str::ucfirst($bot_command);
