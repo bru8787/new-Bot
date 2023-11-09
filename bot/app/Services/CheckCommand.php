@@ -138,7 +138,7 @@ use Telegram\Bot\Laravel\Facades\Telegram;
     {
         if ($data) {
 Log::info($data);
-            die();
+
             Telegram::sendMessage($data);
         }
     }
