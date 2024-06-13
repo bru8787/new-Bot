@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::prefix('telegram/webhooks')->group(function(){
     Route::post('inbound',[TgBotController::class, 'inbound'])->name('inbound');
+    Route::get('set',[TgBotController::class, 'setupHook'])->name('setHook');
 });
