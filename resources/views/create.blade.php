@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+
         @if ($message = Session::get('success'))
                     <div class="position-relative col-3 py-2 px-4 text-bg-success border border-secondary rounded-pill">
                         <strong class="aler alert-success">{{ $message }}</strong> <svg width="1em" height="1em"
@@ -59,7 +60,7 @@
                 <div class="col-md-6 h-full">
                     <div class="form-group ">
                         <label for="message">Text:</label>
-                        <textarea required name="message" id="message" class="form-control" @style('height:200px') placeholder="Enter message"></textarea>
+                        <textarea required name="message" id="message" class="form-control" style="height:200px" placeholder="Enter message"></textarea>
                         <span class="text-danger">{{ $errors->first('message') }}</span>
                     </div>
                 </div>
@@ -70,4 +71,7 @@
         </form>
 
     </div>
-@endsection
+
+
+    @endsection
+

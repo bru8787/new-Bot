@@ -5,9 +5,9 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
+        "danog/madelineproto": "^8",
         "guzzlehttp/guzzle": "^7.2",
-        "irazasyed/telegram-bot-sdk": "^3.13",
         "laravel/breeze": "^1.21",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
@@ -29,10 +29,16 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
+        },
+        "psr-0": {
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "psr-0": {
             "Tests\\": "tests/"
         }
     },
@@ -56,6 +62,12 @@
             "dont-discover": []
         }
     },
+    "authors": [
+        {
+            "name": "Daniil Gentili",
+            "email": "daniil@daniil.it"
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

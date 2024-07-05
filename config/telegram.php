@@ -35,6 +35,7 @@ return [
             'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR-BOT-TOKEN'),
             'certificate_path' => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url' => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
+            'allowed_updates' => env('TELEGRAM_ALLOWED_UPDATES', ['message', 'edited_channel_post', 'callback_query']),
             'commands' => [
                 //Acme\Project\Commands\MyTelegramBot\BotCommand::class
             ],

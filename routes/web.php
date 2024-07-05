@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get("/", function () {
+    return view('auth.login');
+});
 
 
 Route::prefix('/')->middleware(['auth','isAdmin'])->group(function () {
@@ -26,7 +29,6 @@ Route::get('edit/{id}', [BotController::class, 'edit'])->name('edit');
 Route::post('store', [BotController::class, 'store'])->name('store');
 Route::get('show', [BotController::class, 'show'])->name('show');
 Route::get('home', [HomeController::class, 'index'])->name('/');
-Route::get('/', [HomeController::class, 'index'])->name('/');
 });
 
 Auth::routes();

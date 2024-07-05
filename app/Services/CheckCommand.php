@@ -16,19 +16,21 @@ class CheckCommand
     protected $timezone;
     protected $match;
     protected $text;
+    protected $botUsername;
     protected  $param = [
         'chat_id',
         'from_chat_id',
         'reply_to_message',
         'text',
     ];
-    public function __construct($suggested = null, $timezone = null, $match = null, $text = null, $param = null)
+    public function __construct($suggested = null, $timezone = null, $match = null, $text = null, $param = null , $botUsername = null) 
     {
         $this->suggested = $suggested;
         $this->timezone = $timezone;
         $this->match = $match;
         $this->text = $text;
         $this->param = $param;
+        $this->botUsername = $botUsername;
     }
     public function check($request)
     {
@@ -41,10 +43,11 @@ class CheckCommand
             if (isset($botCommandInput)) {
                 $bot_command = ltrim($request->message['text'], '/');
 
-                if ($bot_command !== 'start') {
+                if ($bot_command !== ''&& $bot_command !== '') {
                     $this->checkCommand($bot_command);
                 } elseif ($bot_command == 'start') {
                     $this->setParam('text', 'Hello Buddy, nice to meet you !');
+
                     $this->Send($this->param);
                 }
             }else{
@@ -56,7 +59,7 @@ class CheckCommand
     {
         $bot = new Bot;
         $this->match =  $bot::where('name', '=', $bot_command)->get();
-        Log::info('' . $bot_command);
+        Log::info('this match' . [$this->match]);
         $this->match = $this->match->toArray();
         $this->suggested = $this->suggestCommand($bot_command);
         $bot_command = Str::ucfirst($bot_command);
